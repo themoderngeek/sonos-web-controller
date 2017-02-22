@@ -1,10 +1,10 @@
 package uk.co.themoderngeek.sonos.core.client;
 
+import org.junit.Before;
 import org.junit.Test;
 import uk.co.themoderngeek.sonos.core.model.Device;
 
 import java.net.URI;
-import java.net.URISyntaxException;
 
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
@@ -12,14 +12,17 @@ import static org.junit.Assert.assertThat;
 public class DeviceClientTest {
 
     private DeviceClient unit;
-    private URI uri = new URI("file:///Users/marktaylor/git-source/sonos-web-controller/src/test/resources/device.xml");
+    private URI uri;
 
-    public DeviceClientTest() throws URISyntaxException {
+    @Before
+    public void setUp() throws Exception {
+        ClassLoader classLoader = getClass().getClassLoader();
+        uri = classLoader.getResource("device.xml").toURI();
+        unit = new DeviceClient(uri);
     }
 
     @Test
     public void getDeviceDataFromUri() throws Exception {
-        unit = new DeviceClient(uri);
 
         Device device = unit.getDevice();
 
