@@ -57,7 +57,7 @@ public class NetworkSearch {
                 results.add(receiveData());
             }
         } catch (IOException e) {
-            LOGGER.info("Error receiving data", e);
+            //Do nothing, the socket has been closed already so don't process any more data.
         } finally {
             clientSocket.close();
         }
