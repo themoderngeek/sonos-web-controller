@@ -19,22 +19,22 @@ public class NetworkSearch {
 
     private final InetAddress ssdpAddress;
 
-    private final int ssdPort;
+    private final int ssdpPort;
 
     private final String searchString;
 
     private final int searchDuration;
 
-    public NetworkSearch(DatagramSocket clientSocket, InetAddress ssdpAddress, int ssdPort, String searchString, int searchDuration) {
+    NetworkSearch(DatagramSocket clientSocket, InetAddress ssdpAddress, int ssdPort, String searchString, int searchDuration) {
         this.clientSocket = clientSocket;
         this.ssdpAddress = ssdpAddress;
-        this.ssdPort = ssdPort;
+        this.ssdpPort = ssdPort;
         this.searchString = searchString;
         this.searchDuration = searchDuration;
     }
 
     private void sendSearchPacket() throws IOException {
-        clientSocket.send(new DatagramPacket(searchString.getBytes(), searchString.length(), ssdpAddress, ssdPort));
+        clientSocket.send(new DatagramPacket(searchString.getBytes(), searchString.length(), ssdpAddress, ssdpPort));
     }
 
     private String receiveData() throws IOException {
@@ -70,5 +70,25 @@ public class NetworkSearch {
         } catch (InterruptedException e) {
             LOGGER.warn("Unable to pause current thread", e);
         }
+    }
+
+    public DatagramSocket getClientSocket() {
+        return clientSocket;
+    }
+
+    public InetAddress getSsdpAddress() {
+        return ssdpAddress;
+    }
+
+    public int getSsdpPort() {
+        return ssdpPort;
+    }
+
+    public String getSearchString() {
+        return searchString;
+    }
+
+    public int getSearchDuration() {
+        return searchDuration;
     }
 }
