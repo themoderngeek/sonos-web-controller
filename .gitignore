@@ -2,7 +2,7 @@ target/
 .mvn/
 mvnw
 mvnw.cmd
-
+src/main/java/org/upnp/*
 ### STS ###
 .apt_generated
 .classpath
