@@ -1,0 +1,22 @@
+
+.Player-List {
+    background-color: blue;
+    border-right: 1px solid black;
+    border-left: 1px solid black;
+    margin-left: 0.75rem;
+    border-radius: 2rem;
+}
+
+.Player-List h1 {
+    padding: 0.5rem 0.5rem 0.5rem 1rem;
+    border-bottom: 1px solid black;
+}
+
+.Player-List li {
+    list-style-type: none;
+    padding-bottom: 0.5rem;
+}
+
+.Player-List ul {
+    padding-left: 0;
+}

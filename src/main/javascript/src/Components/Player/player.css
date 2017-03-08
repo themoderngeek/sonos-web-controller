@@ -1,0 +1,11 @@
+.Player {
+  padding: .25rem 1rem;
+  margin: 0 1rem;
+  font-weight: 200;
+  background: darkblue;
+  border: 1px solid black;
+  color: white;
+  border-radius: 1rem;
+  outline: none;
+  min-height: 2.1rem;
+}
